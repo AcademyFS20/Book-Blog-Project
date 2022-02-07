@@ -19,6 +19,10 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    public function books(){
+        return $this->belongsToMany(User::class,'users_books', 'user_id', 'book_id');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
