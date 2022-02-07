@@ -1,4 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<!-- <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -75,4 +75,58 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+
+## Getting started:
+
+Book blog application.
+
+## Overview on the app:
+
+This blog application is dedicated to books. Its main objective is providing a space for books lovers where this community browse books by author, book name or genre, as well as leave reviews through which users share their own opinions and analysis on each book.
+
+## Installation:
+If you like this book blog and you would like to use it, you can follow these steps:
+1-Clone the project:
+`git clone https://github.com/AcademyFS20/Book-blog-project.git /projectname(folder name you created)`
+
+2-cd command
+`cd projectname`
+
+3-Install composer
+`composer install`
+
+4-Dependencies:
+`npm/yarn install`
+
+5-Generate key:
+`php artisan key:generate`
+
+6-Create an empty database and add its name in env file
+
+7-Migrate the datebase through command:
+`php artisan migrate`
+
+## Front end:
+
+Bootstrap
+
+Css
+
+Html
+
+
+## Back end:
+
+Laravel
+
+## Technical assets:
+Laravel
+
+Mysql
+
+Bootstrap
+
+
+
+

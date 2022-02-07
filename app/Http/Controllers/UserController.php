@@ -34,7 +34,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'email'=>'required|unique:emails',
+            'product_image'=>'required|max:2048',
+            'description'=>'required',
+            
+        ],[
+            'product_name.required'=>'category name is required',
+            'product_name.unique'=>'category is unique',
+            'price.required'=>'price is required',
+            'product_image.max'=>'max file upload size is 2M',
+            'description.required'=>'description is required',
+            'description.string'=>'the description must be only characters',
+            
+        ]);
     }
 
     /**
