@@ -16,11 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'password_confirmation', 'user_image',
     ];
 
+    
+
     public function books(){
-        return $this->belongsToMany(User::class,'users_books', 'user_id', 'book_id');
+        return $this->belongsToMany(User::class,'favorites', 'user_id', 'book_id');
     }
 
     /**
@@ -29,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password','password_confirmation', 'remember_token',
     ];
 
     /**

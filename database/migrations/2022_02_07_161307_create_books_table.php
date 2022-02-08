@@ -19,11 +19,10 @@ class CreateBooksTable extends Migration
             $table->string('book_author');
             $table->date('publish_date');
             $table->longText('description');
-            $table->foreignId('author_id')->constrained('authors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('book_image');
+            $table->foreignId('author_id')->constrained('authors')->onDelete('cascade')->onUpdate('cascade');
+            
             $table->timestamps();
-
         });
     }
 

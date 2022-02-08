@@ -37,18 +37,21 @@ class UserController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'email'=>'required|unique:emails',
-            'product_image'=>'required|max:2048',
-            'description'=>'required',
-            
+            'password'=>'required',
+            'password_confirmation'=>'required|confirmed|min:8',
+            'user_image'=>'required|max:2048',
+
         ],[
-            'product_name.required'=>'category name is required',
-            'product_name.unique'=>'category is unique',
-            'price.required'=>'price is required',
-            'product_image.max'=>'max file upload size is 2M',
-            'description.required'=>'description is required',
-            'description.string'=>'the description must be only characters',
+            'name.required'=>'User name is required',
+            'email.required'=>'Email is required',
+            'email.unique'=>'Email is unique',
+            'password.required'=>'passwprd is required',
+            'password_confirmation.required'=>'password is required',
+            'user_image.max'=>'max file upload size is 2M',
+            
             
         ]);
+        
     }
 
     /**
