@@ -4,22 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('user');
     }
     public function index()
     {
-        //
+        return view('admin.home');
     }
 
     /**
@@ -40,24 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required',
-            'email'=>'required|unique:emails',
-            'password'=>'required',
-            'password_confirmation'=>'required|confirmed|min:8',
-            'user_image'=>'required|max:2048',
-
-        ],[
-            'name.required'=>'User name is required',
-            'email.required'=>'Email is required',
-            'email.unique'=>'Email is unique',
-            'password.required'=>'passwprd is required',
-            'password_confirmation.required'=>'password is required',
-            'user_image.max'=>'max file upload size is 2M',
-            
-            
-        ]);
-        
+        //
     }
 
     /**
