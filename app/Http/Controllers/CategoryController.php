@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Category;
 class CategoryController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories=Category::all();
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -23,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -34,8 +35,26 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'category_type'=>'required|unique:categories',
+            'description'=>'required',
+            
+        ],[
+            'category_type.required'=>'Genre is required',
+            'category_type.unique'=>'Genre is unique',
+            'description.required'=>'description is required',
+            'description.string'=>'The description must be only characters',
+            
+        ]);
+
+        Category::create([
+            'category_type'=>$request->category_type,
+            'description'=>$request->description,
+            
+        ]);
+        return redirect()->route('admin.category.index')->with('message','Genre created successfully');
     }
+
 
     /**
      * Display the specified resource.
