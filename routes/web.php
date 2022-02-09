@@ -32,8 +32,8 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/index',[CategoryController::class,'index'])->name('admin.category.index');
         Route::get('/create',[CategoryController::class,'create'])->name('admin.category.create');
         Route::post('/store',[CategoryController::class,'store'])->name('admin.category.store');
-        Route::get('/category/{id}',[CategoryController::class,'show'])->name('admin.category.show');
-        Route::get('/edit/{id}/{slug}',[CategoryController::class,'edit'])->name('admin.category.edit');
+        Route::get('/show/{id}',[CategoryController::class,'show'])->name('admin.category.show');
+        Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('admin.category.edit');
         Route::put('/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
         Route::delete('/delete/{id}',[CategoryController::class,'destroy'])->name('admin.category.delete');
     });
