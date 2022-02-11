@@ -58,7 +58,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('admin.category.index')}}">
               <i class="tim-icons icon-atom"></i>
               <p>Genre</p>
             </a>
@@ -70,7 +70,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('admin.author.index')}}">
               <i class="tim-icons icon-bell-55"></i>
               <p>Authors</p>
             </a>

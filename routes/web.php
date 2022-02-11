@@ -52,7 +52,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/create',[AuthorController::class,'create'])->name('admin.author.create');
         Route::post('/store',[AuthorController::class,'store'])->name('admin.author.store');
         Route::get('/category/{id}',[AuthorController::class,'show'])->name('admin.author.show');
-        Route::get('/edit/{id}/{slug}',[AuthorController::class,'edit'])->name('admin.author.edit');
+        Route::get('/edit/{id}',[AuthorController::class,'edit'])->name('admin.author.edit');
         Route::put('/update/{id}',[AuthorController::class,'update'])->name('admin.author.update');
         Route::delete('/delete/{id}',[AuthorController::class,'destroy'])->name('admin.author.delete');
     });
