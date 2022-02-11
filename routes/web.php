@@ -42,7 +42,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/create',[BookController::class,'create'])->name('admin.book.create');
         Route::post('/store',[BookController::class,'store'])->name('admin.book.store');
         Route::get('/category/{id}',[BookController::class,'show'])->name('admin.book.show');
-        Route::get('/edit/{id}/{slug}',[BookController::class,'edit'])->name('admin.book.edit');
+        Route::get('/edit/{id}',[BookController::class,'edit'])->name('admin.book.edit');
         Route::put('/update/{id}',[BookController::class,'update'])->name('admin.book.update');
         Route::delete('/delete/{id}',[BookController::class,'destroy'])->name('admin.book.delete');
     });

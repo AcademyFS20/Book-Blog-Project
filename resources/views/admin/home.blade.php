@@ -47,7 +47,7 @@
         <div class="logo">
           
           <a href="javascript:void(0)" class="simple-text logo-normal">
-            Zoo
+            Book Blog
           </a>
         </div>
         <ul class="nav">
@@ -64,7 +64,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('admin.book.index')}}">
               <i class="tim-icons icon-pin"></i>
               <p>Books</p>
             </a>
