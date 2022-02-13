@@ -8,7 +8,12 @@ class Review extends Model
 {
     protected $guarded=[];
 
-    public function books(){
-        return $this->belongsTo(Book::class, 'book_id');
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Review::class, 'parent_id');
     }
 }

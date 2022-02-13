@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'category'=>\App\Http\Middleware\CategoryChecker::class,
         'book'=>\App\Http\Middleware\BookChecker::class,
         'author'=>\App\Http\Middleware\AuthorChecker::class,
+        'review'=>\App\Http\Middleware\ReviewChecker::class,
     ];
 }

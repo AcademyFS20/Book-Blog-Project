@@ -25,6 +25,10 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class,'favorites', 'user_id', 'book_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'user_id');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

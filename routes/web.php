@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,5 +64,16 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 Route::prefix('user')->middleware('user')->group(function(){
     Route::get('/home',[UserController::class,'index'])->name('home');
 
+    Route::prefix('review')->middleware('review')->group(function(){
+        Route::get('/index',[ReviewController::class,'index'])->name('user.review.index');
+        Route::get('/create',[ReviewController::class,'create'])->name('user.review.create');
+        Route::post('/store',[ReviewController::class,'store'])->name('user.review.store');
+        Route::post('/replystore',[ReviewController::class,'replystore'])->name('user.review.stor');
+        Route::get('/category/{id}',[ReviewController::class,'show'])->name('user.review.show');
+        Route::get('/reply/{id})',[ReviewController::class,'show2'])->name('user.review.reply');
+        Route::get('/edit/{id}',[ReviewController::class,'edit'])->name('user.review.edit');
+        Route::put('/update/{id}',[ReviewController::class,'update'])->name('user.review.update');
+        Route::delete('/delete/{id}',[ReviewController::class,'destroy'])->name('user.review.delete');
+    });
 
 });
