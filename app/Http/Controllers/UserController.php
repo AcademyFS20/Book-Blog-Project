@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
@@ -19,7 +20,9 @@ class UserController extends Controller
     }
     public function index()
     {
-        //
+        $user = Auth::user();
+       
+        return view('home', compact('user'));
     }
 
     /**
@@ -57,6 +60,9 @@ class UserController extends Controller
             
             
         ]);
+        $path=$request->file('user_image')->store('public/files');
+
+        
         
     }
 
@@ -68,7 +74,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::find($id);
+        return view('user.profile', compact('user','id'));
     }
 
     /**

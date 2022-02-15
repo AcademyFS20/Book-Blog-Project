@@ -20,7 +20,7 @@
       </p>
      
       <p>
-        <input type="date" placeholder="Publish Date" name="publish_date">
+        <input type="text" placeholder="Publish Date" name="publish_date">
       </p>
       <p>
         <textarea placeholder="Your message" name="description"></textarea>

@@ -103,7 +103,7 @@ class ReviewController extends Controller
        
             $input = $request->all();
             $input['user_id'] = auth()->user()->id;
-        
+            
             Review::create($input);
        
             return back();
@@ -120,13 +120,20 @@ class ReviewController extends Controller
     public function show($id)
     {
         $book = Book::find($id);
-        // $user=User::all();
-        // $reviewss=Review::join('users','reviews.user_id','=','users.id')->get();
-        // $review = Review::with('users')->where('user_id',$user->id)->get();
-        $user=User::whereHas('reviews',function($query) use ($id) { $query->where('id',$id);})->get();
         
-        return view('user.review.show', compact('book','user'));
+        // $revi=Review::join('users','reviews.user_id','=','users.id')
+        // ->select('reviews.id','users.name','users.user_image','reviews.review')->get();
+        // dd($revi);
+        $reviewss = Review::with('users.reviews')->get();
+        // $reviewss=Book::with('reviews.users')->get();
+        
+        //  dd($reviewss);
+        // $user=User::whereHas('reviews',function($query) use ($id) { $query->where('id',$id);})->get();
+        
+        return view('user.review.show', compact('book','reviewss'));
+        // return view('user.review.show', compact('book','revi'));
     }
+
     // public function show2($id)
     // {
     //     $book = Book::find($id);

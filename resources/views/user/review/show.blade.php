@@ -1,18 +1,42 @@
 
-@extends('layouts.app')
+
+
+   
+ 
+<html lang="en">
+
+<head>
+  <title>Harvest vase</title>
+  <link href="{{asset('css/cardbook.css')}}" rel="stylesheet">
+</head>
+
+<body>
 <style>
     .display-comment .display-comment {
         margin-left: 40px
     }
 </style>
-@section('content')
-<div class="container">
+  <div class="wrapper">
+    <div class="product-img">
+      <img src="{{Storage::url($book->book_image)}}" height="420" width="327">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <h1>{{ $book->book_name }}</h1>
+        <h2>{{ $book->author_name }}</h2>
+        <p>{{ $book->description }} </p>
+      </div>
+      
+    </div>
+    <button class="primary">
+        <a href="{{route('welcome')}}">Homepage</a>
+		</button>
+  </div>
+  <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body">
-                    <p>{{ $book->description }}</p>
-                </div>
+                
       
                <div class="card-body">
                 <h5>Display Comments</h5>
@@ -41,4 +65,8 @@
         </div>
     </div>
 </div>
-@endsection 
+
+</body>
+
+</html>
+

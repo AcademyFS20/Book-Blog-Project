@@ -16,4 +16,7 @@ class Review extends Model
     {
         return $this->hasMany(Review::class, 'parent_id');
     }
+    public function books(){
+        return $this->belongsTo(Book::class, 'book_id');
+    }
 }

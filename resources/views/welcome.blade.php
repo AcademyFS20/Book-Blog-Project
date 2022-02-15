@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Aura Shelf</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -62,13 +62,14 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link href="{{asset('css/welcome.css')}}" rel="stylesheet">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/user/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -80,20 +81,49 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+           
+<section class="cards-wrapper">
+  <div class="card-grid-space">
+    
+    <a class="card" href="{{route('books')}}" style="--bg-img: url('/images/paige.jpg')">
+      <div>
+        <h1>Books</h1>
+        <p>Click to get access to all the books available on our blog, and feel free to express yourself!</p>
+        <!-- <div class="date">6 Oct 2017</div> -->
+        <!-- <div class="tags">
+          <div class="tag">HTML</div>
+        </div> -->
+      </div>
+    </a>
+  </div>
+  <div class="card-grid-space">
+    
+    <a class="card" href="{{route('authors')}}" style="--bg-img: url('/images/matheus.jpg')">
+      <div>
+        <h1>Writers</h1>
+        <p>Learn more about the writers.</p>
+        <!-- <div class="date">9 Oct 2017</div>
+        <div class="tags">
+          <div class="tag">HTML</div>
+        </div> -->
+      </div>
+    </a>
+  </div>
+  <div class="card-grid-space">
+   
+    <a class="card" href="{{route('genres')}}" style="--bg-img: url('/images/hamza.jpg')">
+      <div>
+        <h1>Genres</h1>
+        <p>Browse genres to learn more about books genres...</p>
+        <!-- <div class="date">14 Oct 2017</div>
+        <div class="tags">
+          <div class="tag">HTML</div>
+        </div> -->
+      </div>
+    </a>
+  </div>
+  <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
+</section>
             </div>
         </div>
     </body>

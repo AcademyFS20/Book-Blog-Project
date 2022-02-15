@@ -22,13 +22,18 @@ use App\Http\Controllers\ReviewController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', 'HomeController@indexx')->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/books', 'HomeController@index1')->name('books');
+Route::get('/authors', 'HomeController@index2')->name('authors');
+Route::get('/genres', 'HomeController@index3')->name('genres');
 
 Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('/home',[AdminController::class,'index'])->name('admin.home');
+    Route::get('/show/{id}',[AdminController::class,'show'])->name('admin.profile');
     Route::prefix('category')->middleware('category')->group(function(){
         Route::get('/index',[CategoryController::class,'index'])->name('admin.category.index');
         Route::get('/create',[CategoryController::class,'create'])->name('admin.category.create');
@@ -63,6 +68,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 
 Route::prefix('user')->middleware('user')->group(function(){
     Route::get('/home',[UserController::class,'index'])->name('home');
+    Route::get('/show/{id}',[UserController::class,'show'])->name('user.profile');
 
     Route::prefix('review')->middleware('review')->group(function(){
         Route::get('/index',[ReviewController::class,'index'])->name('user.review.index');

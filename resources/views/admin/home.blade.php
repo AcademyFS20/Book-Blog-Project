@@ -76,7 +76,7 @@
             </a>
           </li>
           <li>
-            <a href="./user.html">
+            <a href="{{route('admin.profile', $user->id)}}">
               <i class="tim-icons icon-single-02"></i>
               <p>Admin Profile</p>
             </a>
@@ -118,7 +118,7 @@
               
               <li class="dropdown nav-item">
               <div class="photo">
-                    <img src="{{asset('images/avatarw.png')}}" alt="Profile Photo">
+                    <img src="{{Storage::url($user->user_image)}}" alt="Profile Photo">
                   </div>
                 
                 @guest
@@ -135,6 +135,9 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+                               
+                               
+                  
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -184,7 +187,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total Categories</h5>
-                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> </h3>
+                <h3 class="card-title">{{$genres}} </h3>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -197,7 +200,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total Books</h5>
-                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> </h3>
+                <h3 class="card-title">{{$books}} </h3>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -210,7 +213,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total Authors</h5>
-                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> </h3>
+                <h3 class="card-title">{{$authors}}</h3>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -226,7 +229,7 @@
           <ul class="nav">
             <li class="nav-item">
               <a href="javascript:void(0)" class="nav-link">
-                Creative Tim
+                Aura Shelf
               </a>
             </li>
             <li class="nav-item">
@@ -240,13 +243,7 @@
               </a>
             </li>
           </ul>
-          <div class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script>2018 made with <i class="tim-icons icon-heart-2"></i> by
-            <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
-          </div>
+         
         </div>
       </footer>
     </div>

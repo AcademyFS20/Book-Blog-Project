@@ -29,8 +29,10 @@
 					</div>
 					<div class="col-sm-6">
 					
-						<a href="{{route('admin.book.create')}}" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Add New book</span></a>
-												
+						<a href="{{route('admin.book.create')}}" class="btn btn-success" id="add"><i class="material-icons">&#xE147;</i> <span>Add New book</span></a>
+						<button class="primary">
+        <a href="{{route('admin.home')}}">Dashboard</a>
+		</button>			
 					</div>
                 </div>
             </div>
@@ -77,30 +79,12 @@
 							<form method="POST" action="{{route('admin.book.delete', $book->id)}}" enctype="multipart/form-data">
 							@csrf
 								@method('DELETE')
-								<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
-								<div id="deleteEmployeeModal" class="modal fade">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<form>
-												<div class="modal-header">						
-													<h4 class="modal-title">Delete Book</h4>
-													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												</div>
-												<div class="modal-body">					
-													<p>Are you sure you want to delete this book?</p>
-													<p class="text-warning"><small>This action cannot be undone.</small></p>
-												</div>
-												<div class="modal-footer">
-													<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-													<button type="submit" class="btn btn-primary" class="delete">Delete</button>
-												</div>
-											</form>
-										</div> 
-									</div>
-								</div>
+								<button type="submit" class="btn btn-danger" class="delete">Delete</button>
 								
 							</form>
-							<a href="{{route('admin.book.show', $book->id)}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Show">&#xE254;</i></a>
+							<a href="{{route('admin.book.show', $book->id)}}" class="edit" data-toggle="modal"><span class="material-icons-outlined">
+Show
+</span></a>
                         </td>
                     </tr>
                   

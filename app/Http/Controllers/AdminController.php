@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
+use App\Book;
+use App\Category;
 use Illuminate\Http\Request;
-
+use App\User;
+use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     /**
@@ -17,9 +21,15 @@ class AdminController extends Controller
     }
     public function index()
     {
-        return view('admin.home');
+        $user = Auth::user();
+        $books=Book::count();
+        $authors=Author::count();
+        $genres=Category::count();
+        return view('admin.home', compact('user','books','authors','genres'));
+        
     }
 
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -49,7 +59,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::find($id);
+        return view('admin.profile', compact('user','id'));
     }
 
     /**
