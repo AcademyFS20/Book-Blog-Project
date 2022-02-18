@@ -1,12 +1,7 @@
-
-
-
-   
- 
 <html lang="en">
 
 <head>
-  <title>Harvest vase</title>
+  <title>Aura Shelf</title>
   <link href="{{asset('css/cardbook.css')}}" rel="stylesheet">
 </head>
 
@@ -32,6 +27,7 @@
         <a href="{{route('welcome')}}">Homepage</a>
 		</button>
   </div>
+
   <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -41,10 +37,12 @@
                <div class="card-body">
                 <h5>Display Comments</h5>
             
-                @include('user.review.reply', ['reviews' => $book->reviews, 'book_id' => $book->id])
+                @include('user.review.reply', ['reviews'=>$book->reviews,'book_id'=>$book->id])
+                
 
                 <hr />
                </div>
+              
 
                <div class="card-body">
                 <h5>Leave a comment</h5>
@@ -60,6 +58,7 @@
                     </div>
                 </form>
                </div>
+              
 
             </div>
         </div>

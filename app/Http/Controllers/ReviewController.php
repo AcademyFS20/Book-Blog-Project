@@ -45,31 +45,32 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         {
-            // $review = new Review();
+            $review = new Review();
     
-            // $review->review = $request->review;
+            $review->review = $request->review;
     
-            // $review->users()->associate($request->user());
+            $review->users()->associate($request->user());
     
-            // $book = Book::find($request->book_id);
+            $book = Book::find($request->book_id);
     
-            // $book->reviews()->save($review);
+            $book->reviews()->save($review);
+            return back();
             // Review::create([
             //     'review'=>$request->review,
             //     'book_id'=>$request->book_id,
             //     'user_id'=>$request->user_id,
             // ]);
 
-            $request->validate([
-                'review'=>'required',
-            ]);
+            // $request->validate([
+            //     'review'=>'required',
+            // ]);
        
-            $input = $request->all();
-            $input['user_id'] = auth()->user()->id;
+            // $input = $request->all();
+            // $input['user_id'] = auth()->user()->id;
         
-            Review::create($input);
+            // Review::create($input);
        
-            return back();
+            // return back();
     
             
         }
@@ -78,18 +79,18 @@ class ReviewController extends Controller
     }
     public function replyStore(Request $request)
         {
-            // $reply = new Review();
+            $reply = new Review();
     
-            // $reply->review = $request->get('review');
+            $reply->review = $request->get('review');
     
-            // $reply->users()->associate($request->user());
+            $reply->users()->associate($request->user());
     
-            // $reply->parent_id = $request->get('review_id');
+            $reply->parent_id = $request->get('review_id');
     
-            // $book = Book::find($request->get('book_id'));
+            $book = Book::find($request->get('book_id'));
             // $reply = Review::join('users','reviews.user_id','=','users.id');
     
-            // $book->reviews()->save($reply);
+            $book->reviews()->save($reply);
 
             // Review::create([
             //     'review'=>$request->review,
@@ -97,14 +98,14 @@ class ReviewController extends Controller
             //     'user_id'=>$request->user_id,
             // ]);
     
-            $request->validate([
-                'review'=>'required',
-            ]);
+            // $request->validate([
+            //     'review'=>'required',
+            // ]);
        
-            $input = $request->all();
-            $input['user_id'] = auth()->user()->id;
+            // $input = $request->all();
+            // $input['user_id'] = auth()->user()->id;
             
-            Review::create($input);
+            // Review::create($input);
        
             return back();
             
@@ -124,14 +125,15 @@ class ReviewController extends Controller
         // $revi=Review::join('users','reviews.user_id','=','users.id')
         // ->select('reviews.id','users.name','users.user_image','reviews.review')->get();
         // dd($revi);
-        $reviewss = Review::with('users.reviews')->get();
+        // $reviewss = Review::with('users.reviews')->get();
         // $reviewss=Book::with('reviews.users')->get();
+       
         
         //  dd($reviewss);
         // $user=User::whereHas('reviews',function($query) use ($id) { $query->where('id',$id);})->get();
         
-        return view('user.review.show', compact('book','reviewss'));
-        // return view('user.review.show', compact('book','revi'));
+        // return view('user.review.show', compact('book','reviewss'));
+        return view('user.review.show', compact('book'));
     }
 
     // public function show2($id)
@@ -139,7 +141,7 @@ class ReviewController extends Controller
     //     $book = Book::find($id);
     //     $reviews=Review::all();
 
-    //     return view('user.review.reply', compact('book', 'reviews'));
+        // return view('user.review.reply', compact('book', 'reviews'));
     // }
 
     /**

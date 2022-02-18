@@ -1,3 +1,7 @@
+
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +16,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="{{asset('css/category.css')}}" rel="stylesheet">
-  <body>
 
+  <body>
+ 
     <div class="container">
 		@if(Session::has('message'))
 		<div class="message">
@@ -102,4 +107,7 @@
 
     <script src="{{asset('js/category.js')}}"></script>
 </body>
+
 </html>
+
+@endsection

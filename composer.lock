@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18934ccd94a8203942f39a7c11b4b723",
+    "content-hash": "883731a0c33902b8a80d7b9858cf6d05",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -121,6 +121,76 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "christiankuri/laravel-favorite",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ChristianKuri/laravel-favorite.git",
+                "reference": "e3e0b9cfc8bbbb5efbf6e6e78ee31cd9646f1b51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ChristianKuri/laravel-favorite/zipball/e3e0b9cfc8bbbb5efbf6e6e78ee31cd9646f1b51",
+                "reference": "e3e0b9cfc8bbbb5efbf6e6e78ee31cd9646f1b51",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.4",
+                "illuminate/support": ">=5.4",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "orchestra/database": "~3.4",
+                "orchestra/testbench": "~3.4",
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ChristianKuri\\LaravelFavorite\\FavoriteServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ChristianKuri\\LaravelFavorite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Kuri",
+                    "email": "christian.kuri.martinez@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Allows Laravel Eloquent models to implement a 'favorite' or 'remember' or 'follow' feature.",
+            "homepage": "https://github.com/ChristianKuri/laravel-favorite",
+            "keywords": [
+                "ChristianKuri",
+                "Follow",
+                "favoritable",
+                "favorite",
+                "favourite",
+                "laravel",
+                "laravel-favorite",
+                "package",
+                "remember"
+            ],
+            "support": {
+                "issues": "https://github.com/ChristianKuri/laravel-favorite/issues",
+                "source": "https://github.com/ChristianKuri/laravel-favorite/tree/master"
+            },
+            "time": "2019-10-28T22:37:14+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1355,6 +1425,79 @@
             "time": "2021-11-21T11:48:40+00:00"
         },
         {
+            "name": "livewire/livewire",
+            "version": "v2.10.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "f7150a3d0386c1d41f51b73a161e3d3e24db5812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/f7150a3d0386c1d41f51b73a161e3d3e24db5812",
+                "reference": "f7150a3d0386c1d41f51b73a161e3d3e24db5812",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0|^8.0|^9.0",
+                "illuminate/support": "^7.0|^8.0|^9.0",
+                "illuminate/validation": "^7.0|^8.0|^9.0",
+                "league/mime-type-detection": "^1.9",
+                "php": "^7.2.5|^8.0",
+                "symfony/http-kernel": "^5.0|^6.0"
+            },
+            "require-dev": {
+                "calebporzio/sushi": "^2.1",
+                "laravel/framework": "^7.0|^8.0|^9.0",
+                "mockery/mockery": "^1.3.1",
+                "orchestra/testbench": "^5.0|^6.0|^7.0",
+                "orchestra/testbench-dusk": "^5.2|^6.0|^7.0",
+                "phpunit/phpunit": "^8.4|^9.0",
+                "psy/psysh": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Livewire\\LivewireServiceProvider"
+                    ],
+                    "aliases": {
+                        "Livewire": "Livewire\\Livewire"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Livewire\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "A front-end framework for Laravel.",
+            "support": {
+                "issues": "https://github.com/livewire/livewire/issues",
+                "source": "https://github.com/livewire/livewire/tree/v2.10.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/livewire",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-14T16:44:21+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.3.5",
             "source": {
@@ -1669,6 +1812,69 @@
                 "source": "https://github.com/opis/closure/tree/3.6.3"
             },
             "time": "2022-01-27T09:35:39+00:00"
+        },
+        {
+            "name": "overtrue/laravel-favorite",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-favorite.git",
+                "reference": "ca3b885d2641dd2d86dbae92eedc8a59f4891bca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/laravel-favorite/zipball/ca3b885d2641dd2d86dbae92eedc8a59f4891bca",
+                "reference": "ca3b885d2641dd2d86dbae92eedc8a59f4891bca",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0|^8.0"
+            },
+            "require-dev": {
+                "brainmaestro/composer-git-hooks": "^2.7",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "laravel/framework": "^8.0",
+                "mockery/mockery": "^1.2",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Overtrue\\LaravelFavorite\\FavoriteServiceProvider"
+                    ]
+                },
+                "hooks": {
+                    "pre-commit": [
+                        "composer fix-style"
+                    ],
+                    "pre-push": [
+                        "composer test"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelFavorite\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "anzhengchao@gmail.com"
+                }
+            ],
+            "description": "User favorite features for Laravel Application.",
+            "support": {
+                "issues": "https://github.com/overtrue/laravel-favorite/issues",
+                "source": "https://github.com/overtrue/laravel-favorite/tree/4.0.0"
+            },
+            "time": "2021-05-21T14:17:58+00:00"
         },
         {
             "name": "phpoption/phpoption",

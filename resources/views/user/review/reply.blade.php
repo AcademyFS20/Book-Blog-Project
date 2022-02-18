@@ -1,6 +1,7 @@
-@foreach($reviewss as $review)
+@foreach($reviews as $review)
 
-<div class="display-comment" @if($review->parent_id != null) style="margin-left:40px;" @endif>
+
+<div class="display-comment" >
 
    <div>
   <h5>{{$review->users->name}}</h5>
@@ -13,15 +14,17 @@
         @csrf
         <div class="form-group">
             <input type="text" name="review" class="form-control" />
-            <input type="hidden" name="book_id" value="{{ $review->book_id }}" />
-            <input type="hidden" name="parent_id" value="{{ $review->id }}" />
+            <input type="hidden" name="book_id" value="{{ $book_id }}" />
+            <input type="hidden" name="review_id" value="{{ $review->id }}" />
+            
         </div>
       
         <div class="form-group">
             <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;" value="Reply" />
         </div>
     </form>
-     @include('user.review.reply', ['reviewss' => $review->replies])
+     @include('user.review.reply', ['reviews' => $review->replies])
+     
    </div>
    
 

@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Book extends Model
 {
+
+    
     protected $guarded=[];
 
     public function authors(){
@@ -20,6 +23,6 @@ class Book extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(User::class,'users_books', 'book_id', 'user_id');
+        return $this->belongsToMany(User::class,'favorites', 'book_id', 'user_id');
     }
 }
