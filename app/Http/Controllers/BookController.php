@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Author;
 use App\Book;
 use App\Category;
+use App\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\User;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class BookController extends Controller
 {
@@ -155,4 +158,30 @@ class BookController extends Controller
         $book->delete();
         return redirect()->route('admin.book.index')->with('destroy', 'Book deleted successfully');
     }
+
+    public function addfavorites(Request $book){
+
+        $like=
+        Favorite::create([
+            'user_id'=>auth()->user()->id,
+            'book_id'=>$book->id
+        ]);
+        return back()-> with('success','Book added to favorites');
+    }
+
+    public function showFavorites(){
+        // $favorites=User::with('books')->get();
+        $favorites=Favorite::join('books','favorites.book_id','=','books.id')
+        ->select('books.id','books.book_name','books.book_image')->where('user_id',auth()->user()->id)->get();
+        
+        return view('favoriteslist', compact('favorites'));
+    }
+
+    public function deleteFavorites($id){
+        $favorites=Book::find($id);
+        $favorites->books()->detach();
+        
+        return back();
+    }
+   
 }

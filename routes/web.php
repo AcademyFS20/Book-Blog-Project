@@ -70,6 +70,12 @@ Route::prefix('user')->middleware('user')->group(function(){
     Route::get('/home',[UserController::class,'index'])->name('home');
     Route::get('/show/{id}',[UserController::class,'show'])->name('user.profile');
 
+    
+    Route::get('/addfavorites/{id}',[BookController::class,'addfavorites'])->name('favorites');
+    Route::delete('/deletefavorites/{id}',[BookController::class,'deletefavorites'])->name('deletefavorite');
+    
+Route::get('/favorites',[BookController::class,'showFavorites'])->name('favoriteslist');
+
     Route::prefix('review')->middleware('review')->group(function(){
         Route::get('/index',[ReviewController::class,'index'])->name('user.review.index');
         Route::get('/create',[ReviewController::class,'create'])->name('user.review.create');

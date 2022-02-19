@@ -20,6 +20,7 @@
 	<div class="buttons">
 		<button class="primary">
         <a href="{{route('welcome')}}">Home</a>
+        <a href="{{route('favoriteslist')}}">Favorites</a>
 		</button>
 		
 	</div>

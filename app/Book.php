@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Http\Request;
 
 class Book extends Model
 {
@@ -22,7 +22,16 @@ class Book extends Model
         return $this->belongsTo(Category::class,'category_id');
     }
 
-    public function users(){
+    public function books(){
         return $this->belongsToMany(User::class,'favorites', 'book_id', 'user_id');
     }
+
+    public function isLiked(Request $book){
+        if(auth()->check()){
+            return ([auth()->user()->id,
+            $book->id]);
+        }
+        
+    }
+    
 }
