@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Book;
 use App\Author;
 use App\Category;
+use phpDocumentor\Reflection\Types\Null_;
+
 class HomeController extends Controller
 {
     /**
@@ -53,4 +55,42 @@ class HomeController extends Controller
         return view('genres', compact('categories'));
     }
 
+
+    public function index4(Request $request){
+        $book=Book::where([
+            ['book_name', '!=', Null],
+            ['publish_date', '!=', Null],
+            [function($query) use($request){
+                if(($term=$request->term)){
+                    $query->orWhere('book_name','LIKE','%'.$term.'%');
+                }
+                if(($term=$request->term)){
+                    $query->orWhere('publish_date','LIKE','%'.$term.'%');
+                }
+               
+            }]
+        ])->orderBy('id','desc')->paginate(10);
+        
+        $boo=Author::withCount('books')->where([
+            ['author_name', '!=', Null],
+            [function($query) use($request){
+                if(($term=$request->term)){
+                    $query->orWhere('author_name','LIKE','%'.$term.'%');
+                }
+               
+            }]
+        ])->orderBy('books_count','desc')->paginate(10);
+
+        $genres=Category::withCount('books')->where([
+            ['category_type', '!=', Null],
+            [function($query) use($request){
+                if(($term=$request->term)){
+                    $query->orWhere('category_type','LIKE','%'.$term.'%');
+                }
+               
+            }]
+        ])->orderBy('books_count','desc')->paginate(10);
+     
+        return view('booksearch',compact('book','boo','genres'))->with('i',(request()->input('page',1)-1)*5);
+    }
 }

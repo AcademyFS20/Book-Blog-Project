@@ -31,6 +31,8 @@ Route::get('/books', 'HomeController@index1')->name('books');
 Route::get('/authors', 'HomeController@index2')->name('authors');
 Route::get('/genres', 'HomeController@index3')->name('genres');
 
+Route::get('/resultbooks', 'HomeController@index4')->name('booksearch');
+
 Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('/home',[AdminController::class,'index'])->name('admin.home');
     Route::get('/show/{id}',[AdminController::class,'show'])->name('admin.profile');
