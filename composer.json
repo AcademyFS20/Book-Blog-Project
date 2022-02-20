@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
         "livewire/livewire": "^2.10",
-        "overtrue/laravel-favorite": "^4.0"
+        "overtrue/laravel-favorite": "^4.0",
+        "spatie/laravel-newsletter": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 	// Activate tooltip
 	$('[data-toggle="tooltip"]').tooltip();
@@ -21,3 +23,6 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
+

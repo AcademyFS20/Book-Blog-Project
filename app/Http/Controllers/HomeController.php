@@ -93,4 +93,35 @@ class HomeController extends Controller
      
         return view('booksearch',compact('book','boo','genres'))->with('i',(request()->input('page',1)-1)*5);
     }
+
+
+    public function index5($category_type)
+    {
+        // $categoriez = Category::with('books')->has('books')->get();
+   
+        // $categoriez=Category::find($id)->books;
+        
+        $categoriez=Category::where([['category_type', '=', $category_type]])
+        ->with('books')->has('books')->get();
+       
+        return view('categorybooks', compact('categoriez'));
+    }
+
+
+    public function index6($author_name)
+    {
+       
+        
+        $authors=Author::where([['author_name', '=', $author_name]])
+        ->with('books')->has('books')->get();
+       
+        return view('authorbooks', compact('authors'));
+    }
+
+
+
+
+
+
+
 }

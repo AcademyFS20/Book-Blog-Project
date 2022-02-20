@@ -33,6 +33,16 @@ Route::get('/genres', 'HomeController@index3')->name('genres');
 
 Route::get('/resultbooks', 'HomeController@index4')->name('booksearch');
 
+
+Route::get('/categorybooks/{category_type}', 'HomeController@index5')->name('categorybooks');
+
+Route::get('/authorbooks/{author_name}', 'HomeController@index6')->name('authorbooks');
+
+
+Route::get('newsletter','NewsletterController@create')->name('newsletter');
+Route::post('newsletter/store','NewsletterController@store')->name('newsletter');
+
+
 Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('/home',[AdminController::class,'index'])->name('admin.home');
     Route::get('/show/{id}',[AdminController::class,'show'])->name('admin.profile');
@@ -89,5 +99,8 @@ Route::get('/favorites',[BookController::class,'showFavorites'])->name('favorite
         Route::put('/update/{id}',[ReviewController::class,'update'])->name('user.review.update');
         Route::delete('/delete/{id}',[ReviewController::class,'destroy'])->name('user.review.delete');
     });
+
+
+
 
 });
