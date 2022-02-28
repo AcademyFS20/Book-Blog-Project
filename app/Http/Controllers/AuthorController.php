@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Author;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 class AuthorController extends Controller
 {
     /**
@@ -55,6 +56,7 @@ class AuthorController extends Controller
 
         Author::create([
             'author_name'=>$request->author_name,
+            'slug'=>Str::slug($request->author_name),
             'about_author'=>$request->about_author,
             'author_image'=>$path,
             

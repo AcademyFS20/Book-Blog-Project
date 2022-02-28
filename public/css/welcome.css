@@ -196,3 +196,42 @@ a {
     margin: 0;
   }
 }
+.latest{
+  background-color: 
+  #efefef;
+}
+.footer{
+  background-color: #efefef;
+}
+#logoaura{
+  color: #f8949e !important;
+}
+.containerfoot{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.subcontainer{
+  width: 500px;
+}
+#icons{
+  color: #f8949e;
+}
+#iconss{
+  color: #f8949e;
+}
+#iconss:hover{
+  color: white;
+}
+.rowfoot{
+  align-content: center;
+  margin-left: 250px;
+}
+.hr1{
+  width: 150px;
+}
+.hr{
+  width: 150px;
+  color: black;
+}

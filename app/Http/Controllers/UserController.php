@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Article;
 class UserController extends Controller
 {
     /**
@@ -24,6 +26,11 @@ class UserController extends Controller
        
         return view('home', compact('user'));
     }
+ public function indexing(){
+    $user = Auth::user();
+    $articles=Article::paginate(4);
+     return view('welcome', compact('user','articles'));
+ }
 
     /**
      * Show the form for creating a new resource.
@@ -86,7 +93,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users=User::find($id);
+        return view('user.profile.edit', compact('users'));
     }
 
     /**
@@ -96,10 +104,30 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+   
+        protected function update(Request $request, $id)
     {
-        //
+        $users=User::find($id);
+        $image=$users->user_image;
+
+        if($request->file('user_image')){
+            Storage::delete($image);
+            $image=$request->file('user_image')->store("public/assets");
+        }
+
+
+
+        $users->name=$request->name;
+        $users->email=$request->email;
+        $users->password=$request->password;
+        $users->password_confirmation=$request->password_confirmation;
+        $users->user_image=$image;
+        $users->save();
+
+      
+        return redirect()->route('user.profile',compact('users','id'))->with('update', 'User updated successfully!');
     }
+    
 
     /**
      * Remove the specified resource from storage.

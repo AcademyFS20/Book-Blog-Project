@@ -76,6 +76,12 @@
             </a>
           </li>
           <li>
+            <a href="{{route('admin.article.index')}}">
+              <i class="tim-icons icon-single-02"></i>
+              <p>Articles</p>
+            </a>
+          </li>
+          <li>
             <a href="{{route('admin.profile', $user->id)}}">
               <i class="tim-icons icon-single-02"></i>
               <p>Admin Profile</p>

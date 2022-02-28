@@ -82,7 +82,7 @@
 								<button type="submit" class="btn btn-danger" class="delete">Delete</button>
 								
 							</form>
-							<a href="{{route('admin.author.show', $author->id)}}" class="edit" data-toggle="modal">Show</a>
+							<a href="{{route('admin.author.show', [$author->id, $author->slug])}}" class="edit">Show</a>
                         </td>
                     </tr>
                     @empty

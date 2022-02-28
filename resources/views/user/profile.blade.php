@@ -21,6 +21,7 @@
 		<button class="primary">
         <a href="{{route('welcome')}}">Home</a>
         <a href="{{route('favoriteslist')}}">Favorites</a>
+        <a href="{{route('user.profile.edit', $user->id)}}">Edit Profile</a>
 		</button>
 		
 	</div>

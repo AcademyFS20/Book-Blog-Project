@@ -1,0 +1,36 @@
+* {margin: 0; padding: 0;}
+
+
+/* Homepage list articles */
+.divlist {
+    margin: 20px;
+  }
+  
+  .listyou {
+    list-style-type: none;
+    width: 800px;
+  }
+  
+  .titles {
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  }
+  
+  .imglist {
+    float: left;
+    margin: 0 15px 0 0;
+    width: 100px;
+  }
+  
+  .contenu {
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+  }
+  
+  .listli {
+    padding: 10px;
+    overflow: auto;
+  }
+  
+  .listli:hover {
+    background: #eee;
+    cursor: pointer;
+  }

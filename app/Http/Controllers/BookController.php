@@ -8,6 +8,7 @@ use App\Category;
 use App\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\User;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
@@ -73,7 +74,7 @@ class BookController extends Controller
 
         Book::create([
             'book_name'=>$request->book_name,
-            
+            'slug'=>Str::slug($request->book_name),
             'publish_date'=>$request->publish_date,
             'book_image'=>$path,
             'description'=>$request->description,
@@ -170,9 +171,11 @@ class BookController extends Controller
     }
 
     public function showFavorites(){
-        // $favorites=User::with('books')->get();
+        $favorites=User::with('books')->get();
         $favorites=Favorite::join('books','favorites.book_id','=','books.id')
         ->select('books.id','books.book_name','books.book_image')->where('user_id',auth()->user()->id)->get();
+        
+        
         
         return view('favoriteslist', compact('favorites'));
     }

@@ -23,6 +23,7 @@
 		<button class="primary">
         <a href="{{route('admin.home')}}">Dashboard</a>
 		</button>
+		<a href="{{route('admin.profile.edit', $user->id)}}">Edit Profile</a>
 		<button class="primary ghost"><a href="{{route('welcome')}}">Home</a>
 			
 		</button>

@@ -16,7 +16,7 @@ class Book extends Model
     }
 
     public function reviews(){
-        return $this->hasMany(Review::class, 'book_id');
+        return $this->hasMany(Review::class, 'book_id')->whereNull('parent_id');
     }
     public function categories(){
         return $this->belongsTo(Category::class,'category_id');

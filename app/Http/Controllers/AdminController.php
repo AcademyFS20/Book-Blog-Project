@@ -8,6 +8,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 class AdminController extends Controller
 {
     /**
@@ -71,7 +72,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users=User::find($id);
+        return view('admin.profile.edit', compact('users'));
     }
 
     /**
@@ -81,9 +83,31 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
+    protected function update(Request $request, $id)
     {
-        //
+        $users=User::find($id);
+        $image=$users->user_image;
+
+        if($request->file('user_image')){
+            Storage::delete($image);
+            $image=$request->file('user_image')->store("public/assets");
+        }
+
+
+
+        $users->name=$request->name;
+        $users->email=$request->email;
+        $users->password=$request->password;
+        $users->password_confirmation=$request->password_confirmation;
+        $users->user_image=$image;
+        $users->save();
+
+      
+        return redirect()->route('admin.profile',compact('users','id'))->with('update', 'User updated successfully!');
     }
 
     /**

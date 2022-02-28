@@ -77,7 +77,7 @@
 								<button type="submit" class="btn btn-danger" class="delete">Delete</button>
 								
 							</form>
-							<a href="{{route('admin.category.show', $category->id)}}" class="edit" data-toggle="modal">Show</a>
+							<a href="{{route('admin.category.show', [$category->id, $category->slug])}}" class="edit" data-toggle="modal">Show</a>
                         </td>
                     </tr>
 					@empty

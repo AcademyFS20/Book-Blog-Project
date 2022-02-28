@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Book;
 use App\Author;
 use App\Category;
-use phpDocumentor\Reflection\Types\Null_;
+use Illuminate\Support\Facades\Auth;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -27,11 +28,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $favorites=Favorite::all()->count();
         return view('home');
     }
     public function indexx()
     {
-        return view('welcome');
+        $user = Auth::user();
+    
+
+        
+       
+        return view('welcome', compact('user'));
+      
     }
 
     public function index1()

@@ -82,7 +82,7 @@
 								<button type="submit" class="btn btn-danger" class="delete">Delete</button>
 								
 							</form>
-							<a href="{{route('admin.book.show', $book->id)}}" class="edit" data-toggle="modal"><span class="material-icons-outlined">
+							<a href="{{route('admin.book.show', $book->id)}}" class="edit"><span class="material-icons-outlined">
 Show
 </span></a>
                         </td>

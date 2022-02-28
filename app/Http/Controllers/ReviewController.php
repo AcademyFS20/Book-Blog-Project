@@ -44,17 +44,26 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+
+        $input = $request->all();
+        $request->validate([
+            'review'=>'required',
+        ]);
+        $input['user_id'] = auth()->user()->id;
+        Review::create($input);
+        return back();
         {
-            $review = new Review();
+            
+            // $review = new Review();
     
-            $review->review = $request->review;
+            // $review->review = $request->review;
     
-            $review->users()->associate($request->user());
+            // $review->users()->associate($request->user());
     
-            $book = Book::find($request->book_id);
+            // $book = Book::find($request->book_id);
     
-            $book->reviews()->save($review);
-            return back();
+            // $book->reviews()->save($review);
+            // return back();
             // Review::create([
             //     'review'=>$request->review,
             //     'book_id'=>$request->book_id,
@@ -77,20 +86,20 @@ class ReviewController extends Controller
     
         
     }
-    public function replyStore(Request $request)
-        {
-            $reply = new Review();
+    // public function replyStore(Request $request)
+    //     {
+    //         $reply = new Review();
     
-            $reply->review = $request->get('review');
+    //         $reply->review = $request->get('review');
     
-            $reply->users()->associate($request->user());
+    //         $reply->users()->associate($request->user());
     
-            $reply->parent_id = $request->get('review_id');
+    //         $reply->parent_id = $request->get('review_id');
     
-            $book = Book::find($request->get('book_id'));
-            // $reply = Review::join('users','reviews.user_id','=','users.id');
+    //         $book = Book::find($request->get('book_id'));
+    //         // $reply = Review::join('users','reviews.user_id','=','users.id');
     
-            $book->reviews()->save($reply);
+    //         $book->reviews()->save($reply);
 
             // Review::create([
             //     'review'=>$request->review,
@@ -107,10 +116,10 @@ class ReviewController extends Controller
             
             // Review::create($input);
        
-            return back();
+        //     return back();
             
     
-        }
+        // }
 
     /**
      * Display the specified resource.
@@ -175,6 +184,9 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment=Review::find($id);
+        $comment->delete();
+        return back()->with('destroy', 'Your comment is deleted');
+        
     }
 }
